@@ -28,18 +28,57 @@ img {
 
 .game-board {
   order: 2;
+  overflow: hidden;
   position: relative;
-  background-image: url("../imgs/field.svg");
-  background-repeat: no-repeat;
-  object-position: center center;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-clip: content-box;
   width: 100%;
   height: 100%;
   background-color: forestgreen;
 }
+.game-board .field {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: scale(2.1);
+  height: 100%;
+}
+.game-board .highscore {
+  padding: 1rem 2rem;
+  background-color: rgba(225, 225, 225, 0.7);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 2;
+}
+.game-board .highscore h2 {
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.5rem;
+  display: inline;
+}
+.game-board .highscore img {
+  display: inline;
+  width: 20px;
+  transform: translateY(25%) rotate(180deg);
+  transition: 0.2s;
+}
+.game-board .highscore .turn {
+  transform: translateY(25%) rotate(0);
+}
+.game-board .highscore ol {
+  text-align: left;
+  padding-left: 15px;
+}
+.game-board .highscore ol li {
+  font-size: 1rem;
+}
+.game-board .hide {
+  display: none;
+}
 .game-board .ball {
+  z-index: 2;
   user-select: none;
   position: absolute;
   top: 50%;
@@ -58,6 +97,11 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.board .score-prev {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .board .score {
   display: flex;
